@@ -9,26 +9,23 @@ const checkLuckyOrNot = function (sum, inputValue) {
   } else {
     outputBox.innerText = "Ohh!!Your Birthday is not Lucky🤢.";
   }
-  // console.log(sum);
-  // console.log(inputValue);
 };
 
 const calculateSum = function (dob) {
   dob = dob.replaceAll("-", "");
-  // console.log(dob);
   let ans = 0;
   for (let i = 0; i < dob.length; i++) {
     ans = ans + Number(dob.charAt(i));
   }
   return ans;
-
-  // console.log(ans);
 };
 const checkYourBirthdayLucky = function () {
+  if (luckyNumber.value <= 0) {
+    outputBox.innerText = "Invalid input😡";
+    return;
+  }
   const dob = dateOfBirth.value;
-  // console.log(dob);
   const sum = calculateSum(dob);
-  // console.log(sum);
   const inputValue = luckyNumber.value;
   if (dob && inputValue) {
     checkLuckyOrNot(sum, inputValue);
